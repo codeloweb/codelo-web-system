@@ -48,12 +48,20 @@ class SiteController extends Controller
 				'start'=>$event->event_date
 			);
 		}
+
+		$tagsCount=array();
+
+		$tags = article::model()->getAllTagsWithModelsCount();
+		foreach($tags as $tag){
+			$tagsCount[$tag['name']]=array('weight'=>$tag['count']+1);
+		}
 		
 		$this->render('index',array(
 			'articles'=>$articles,
 			'carrousels'=>$carrousels->getData(),
 			'events'=>$eventsCalendar,
 			'eventsData'=>$events->getData(),
+			'tagsCount'=>$tagsCount,
 		));
 	}
 

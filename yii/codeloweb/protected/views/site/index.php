@@ -105,6 +105,18 @@
 			)); ?>
 		</div>
 	</div>
+	<hr/>
+	<div class="row" style="text-align: center;">
+		<?php $this->widget('application.extensions.YiiTagCloud.YiiTagCloud', 
+			array(
+				'beginColor' => 'FFAD29',
+				'endColor' => 'FA5C1E',
+				'minFontSize' => 8,
+				'maxFontSize' => 20,
+				'arrTags' => $tagsCount,
+				)
+		); ?>
+	</div>
 </div>
 <script type="text/javascript" language="javascript" charset="utf-8">
 	$('#carousel-news').on('slid.bs.carousel', function () {

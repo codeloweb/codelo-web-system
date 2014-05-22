@@ -21,7 +21,6 @@ $this->menu=array(
 		'id',
 		'title',
 		'subtitle',
-		'content',
 		'id_user_author',
 		'created_date',
 		'sources',

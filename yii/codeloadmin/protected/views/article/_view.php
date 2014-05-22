@@ -12,12 +12,8 @@
 	<?php echo CHtml::encode($data->subtitle); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
-	<?php echo CHtml::encode($data->content); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id_user_author')); ?>:</b>
-	<?php echo CHtml::encode($data->id_user_author); ?>
+	<?php echo CHtml::encode($data->author->username); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('created_date')); ?>:</b>

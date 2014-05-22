@@ -52,9 +52,9 @@ class article extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'id_user_author0' => array(self::BELONGS_TO, 'User', 'id_user_author'),
-			'carrousels' => array(self::HAS_MANY, 'Carrousel', 'id_article'),
-			'events' => array(self::HAS_MANY, 'Event', 'id_article'),
+			'author' => array(self::BELONGS_TO, 'User', 'id_user_author'),
+			'carrousels' => array(self::HAS_MANY, 'carrousel', 'id_article'),
+			'events' => array(self::HAS_MANY, 'event', 'id_article'),
 		);
 	}
 
@@ -69,6 +69,7 @@ class article extends CActiveRecord
 			'subtitle' => 'Subtitle',
 			'content' => 'Content',
 			'id_user_author' => 'Id User Author',
+			'author' => 'Author',
 			'created_date' => 'Created Date',
 			'sources' => 'Sources',
 			'thumbnail_img_path' => 'Thumbnail Img Path',
