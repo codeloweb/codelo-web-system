@@ -36,7 +36,7 @@
 			"filesurl"=>(!$model->isNewRecord)?Yii::app()->baseUrl."/media/paquetes/".$model->id."/":"",
 		    ) 
 		);*/
-		 $this->widget('ext.editMe.widgets.ExtEditMe', array(
+		$extEditMeOpt = array(
 			'model'=>$model,
 			'attribute'=>'content',
 			'toolbar'=>array(
@@ -62,9 +62,11 @@
 				'scayt_sLang'=>'es_ES',
 				'scayt_autoStartup'=>true,
 			),
-			'filebrowserImageBrowseUrl'=>Yii::app()->baseUrl.'/protected/extensions/ResponsiveFilemanager-master/filemanager/dialog.php?type=1&popup=1&field_id=cke_111_textInput',
-			'filebrowserImageUploadUrl'=>Yii::app()->baseUrl.'/../../ResponsiveFilemanager-master/filemanager/upload.php?path='.Yii::app()->baseUrl.'/images',
-			)); ?>
+		);
+		if(!$model->isNewRecord){
+			$extEditMeOpt['filebrowserImageBrowseUrl']=Yii::app()->baseUrl.'/protected/extensions/ResponsiveFilemanager-master/filemanager/dialog.php?lang=es&type=1&popup=1&field_id=cke_86_textInput&fldr='.$model->id;
+		}
+		$this->widget('ext.editMe.widgets.ExtEditMe', $extEditMeOpt); ?>
 		<?php echo $form->error($model,'content'); ?>
 	</div>
 

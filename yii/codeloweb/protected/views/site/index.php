@@ -113,6 +113,7 @@
 				'endColor' => 'FA5C1E',
 				'minFontSize' => 8,
 				'maxFontSize' => 20,
+				'htmlOptions' => array('style'=>'width: 90%; margin-left: auto; margin-right: auto'),
 				'arrTags' => $tagsCount,
 				)
 		); ?>

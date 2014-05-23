@@ -10,6 +10,7 @@ define('lang_Archives','Ficheros');
 define('lang_Error_Upload','El archivo que intenta subir excede el máximo permitido.');
 define('lang_Error_extension','La extensión del archivo no está permitida.');
 define('lang_Upload_file','Subir');
+define('lang_Upload_img_file','Subir Imagen');
 define('lang_Filters','Filtros');
 define('lang_Videos','Videos');
 define('lang_Music','Música');

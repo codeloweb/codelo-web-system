@@ -27,8 +27,13 @@ include('include/utils.php');
 if (isset($_GET['fldr'])
     && !empty($_GET['fldr'])
     && strpos($_GET['fldr'],'../')===FALSE
-    && strpos($_GET['fldr'],'./')===FALSE)
-    $subdir = urldecode(trim(strip_tags($_GET['fldr']),"/") ."/");
+    && strpos($_GET['fldr'],'./')===FALSE){
+    	$subdir = urldecode(trim(strip_tags($_GET['fldr']),"/") ."/");
+    	/*$current_path = $current_path.$subdir;
+    	$thumbs_base_path = $thumbs_base_path.$subdir;
+    	$upload_dir = $upload_dir.$subdir;
+    	$subdir = '';*/
+	}
 else
     $subdir = '';
 
@@ -481,10 +486,10 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 		    <div class="row-fluid">
 			<div class="span3 half"> 
 			    <?php if($upload_files){ ?>
-						    <button class="tip btn upload-btn" title="<?php echo  lang_Upload_file; ?>"><i class="icon-plus"></i><i class="icon-file"></i></button> 
+						    <button class="tip btn upload-btn" title="<?php echo  lang_Upload_file; ?>"><i class="icon-plus"></i><i class="icon-file"></i><p><?php echo  lang_Upload_img_file ?></p></button> 
 			    <?php } ?>
 			    <?php if($create_folders){ ?>
-						    <button class="tip btn new-folder" title="<?php echo  lang_New_Folder?>"><i class="icon-plus"></i><i class="icon-folder-open"></i></button> 
+						    <button class="tip btn new-folder" title="<?php echo  lang_New_Folder?>"><i class="icon-plus"></i><i class="icon-folder-open"></i><p><?php echo lang_New_Folder ?></p></button>
 			    <?php } ?>
 			    <?php if($copy_cut_files || $copy_cut_dirs){ ?>
 				    <button class="tip btn paste-here-btn" title="<?php echo lang_Paste_Here; ?>"><i class="rficon-clipboard-apply"></i></button> 
