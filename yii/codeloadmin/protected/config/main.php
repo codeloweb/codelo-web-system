@@ -4,6 +4,7 @@
 // Yii::setPathOfAlias('local','path/to/local-folder');
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/yii-booster');
 Yii::setPathOfAlias('taggable', dirname(__FILE__).'/../extensions/taggable');
+Yii::setPathOfAlias('faceplugs', dirname(__FILE__).'/../extensions/faceplugs');
 //Yii::setPathOfAlias('editor', dirname(__FILE__).'/../extensions/editor');
 
 // This is the main Web application configuration. Any writable
@@ -14,6 +15,7 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array(
+		'faceplugs',
 		'taggable',
 		'log',
 		'bootstrap'

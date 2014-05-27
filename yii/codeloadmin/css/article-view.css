@@ -1,0 +1,174 @@
+.cogo-header{
+	font-weight: bold;
+	font-family: 'Arial Black', Gadget, sans-serif;
+	color: white;
+	border-radius: 4px 4px 4px 4px;
+	background-image: linear-gradient(#df4e17, #3F3F3F);
+	margin-left: 5px;
+	margin-right: 5px;
+	position: relative;
+	top: 5px;
+	padding-left: 5px;
+}
+
+.article{
+	margin-top: 10px;
+	color: #FFFFFF;
+	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222 100%);
+	border-radius: 4px 4px 4px 4px;
+	position: relative;
+	padding: 0 0 20px 0;
+}
+
+.article.main{
+	margin-top: 0;
+}
+
+.article h1{
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.article hr.title-separator{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border: 0;
+    height: 1px;
+    margin-left: 10px;
+	margin-right: 5px;
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.75), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background: -moz-linear-gradient(left, rgba(0,0,0,0.75), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background: -ms-linear-gradient(left, rgba(0,0,0,0.75), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+.article .subtitle{
+	margin-top: 5px;
+	margin-left: 15px;
+	margin-right: 15px;
+	font-style: italic; 
+	box-sizing: border-box;
+}
+
+.article .article-content{
+	margin: 15px 15px 0 15px;
+	overflow: hidden;
+	margin-top: -5px;
+}
+
+.article .article-content .article-text{
+	position: relative;
+}
+
+.article-text img{
+	display: none;
+}
+
+.article .article-img{
+	margin-right: 15px;
+	margin-bottom: 5px;
+}
+
+.article .article-container{
+	height: 30em;
+}
+
+.article .article-large-container{
+	height: 20em;
+	overflow: hidden;
+}
+
+.article .article-main-container{
+	overflow: hidden;
+}
+
+.article .article-socios-container{
+	height: 20em;
+	overflow: hidden;
+}
+
+.article .article-main-container .article-content{
+	padding: 0px 25px 25px 25px;
+}
+
+.article .article-main-container .article-text{
+	font-size: 1.2em;
+}
+
+.article .article-footer{
+	height: 0.9em;
+	width: 100%;
+	margin-top: -0.5em;
+}
+
+.article .article-footer .left{
+	margin-left: 15px;
+	color: gray;
+}
+
+.article .article-footer .right{
+	margin-right: 15px;
+}
+
+hr.footer-separator{
+	height:12px;
+	border: 0;
+	box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+	margin-bottom: -5px;
+}
+
+.article h3{
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.article h3 a:link {color:#FFFFFF;}      /* unvisited link */
+.article h3 a:visited {color:#FFFFFF;}  /* visited link */
+.article h3 a:hover {color:#BABABA; text-decoration: none;}  /* mouse over link */
+.article h3 a:active {color:#FFFFFF;}
+
+
+.article-link{
+	display: none;
+}
+
+.fb-likebox-container{
+	margin-top: 10px;
+	color: #FFFFFF;
+	background-image: linear-gradient(to bottom, #3C3C3C 0px, #222 100%);
+	display: inline-block;
+}
+
+.article-author-date{
+	padding: 5px 1em 0 1em;
+	float: left;
+	width: 100%;
+}
+
+.article-author-date p{
+	float: right;
+}
+
+.fb-likebutton-container{
+	display: inline-block;
+	float: left;
+}
+
+.article-tags{
+	color: gray;
+	background-color: #3C3C3C;
+	border: 1px solid gray;
+	margin: 0 1em 1em 1em;
+	font-weight: bold;
+}
+
+.article-tags span{
+	margin-right: 1em;
+}
+
+.article-sources{
+	font-size: 0.8em;
+	margin-left: 2em;
+}
