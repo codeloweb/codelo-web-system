@@ -78,12 +78,13 @@ class ArticleController extends Controller
 			//Upload image to server
 			$uploadFile = CUploadedFile::getInstance($model, 'uploaded_thumbnail_image_file');
 			$fileName = "{$uploadFile}";
+
+			if (!file_exists(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id)) {
+				mkdir(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id, 0777, true);
+			}
 			
 			if(isset($uploadFile))
 			{
-				if (!file_exists(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id)) {
-					mkdir(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id, 0777, true);
-				}
 				$model->thumbnail_img_path = $fileName;
 				$uploadFile->saveAs(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id.'/'.$fileName);
 			}

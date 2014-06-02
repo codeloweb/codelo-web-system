@@ -9,6 +9,7 @@
  * @property string $subtitle
  * @property string $content
  * @property integer $id_user_author
+ * @property integer $id_section
  * @property string $created_date
  * @property string $sources
  * @property string $thumbnail_img_path
@@ -33,14 +34,14 @@ class article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, id_user_author, verified, show_in_news', 'required'),
-			array('id_user_author, verified, show_in_news', 'numerical', 'integerOnly'=>true),
+			array('title, content, id_user_author, id_section, verified, show_in_news', 'required'),
+			array('id_user_author, id_section, verified, show_in_news', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('subtitle, sources, thumbnail_img_path', 'length', 'max'=>200),
 			array('uploaded_thumbnail_image_file', 'unsafe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, subtitle, content, id_user_author, created_date, sources, thumbnail_img_path, verified, show_in_news', 'safe', 'on'=>'search'),
+			array('id, title, subtitle, content, id_user_author, id_section, created_date, sources, thumbnail_img_path, verified, show_in_news', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,6 +54,7 @@ class article extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'author' => array(self::BELONGS_TO, 'User', 'id_user_author'),
+			'section' => array(self::BELONGS_TO, 'section', 'id_section'),
 			'carrousels' => array(self::HAS_MANY, 'carrousel', 'id_article'),
 			'events' => array(self::HAS_MANY, 'event', 'id_article'),
 		);
@@ -65,16 +67,17 @@ class article extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'title' => 'Title',
-			'subtitle' => 'Subtitle',
-			'content' => 'Content',
-			'id_user_author' => 'Id User Author',
-			'author' => 'Author',
-			'created_date' => 'Created Date',
-			'sources' => 'Sources',
-			'thumbnail_img_path' => 'Thumbnail Img Path',
-			'verified' => 'Verified',
-			'show_in_news' => 'Show In News',
+			'title' => 'Titulo',
+			'subtitle' => 'Subtitulo',
+			'content' => 'Contenido',
+			'id_user_author' => 'Id Autor',
+			'created_date' => 'Fecha de creacion',
+			'sources' => 'Fuentes',
+			'id_section' => 'Id Section',
+			'section' => 'Seccion',
+			'thumbnail_img_path' => 'Imagen de presentacion',
+			'verified' => 'Verificado',
+			'show_in_news' => 'Mostrar en la pantalla principal',
 		);
 	}
 
@@ -105,6 +108,8 @@ class article extends CActiveRecord
 		$criteria->compare('content',$this->content,true);
 
 		$criteria->compare('id_user_author',$this->id_user_author);
+
+		$criteria->compare('id_section',$this->id_section);
 
 		$criteria->compare('created_date',$this->created_date,true);
 

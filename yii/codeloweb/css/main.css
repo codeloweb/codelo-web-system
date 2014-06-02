@@ -220,19 +220,23 @@ hr.footer-separator{
 	padding: 0 0 0 25px;
 }
 
-.event-list > li{
+.event-list li{
 	float: left;
 	width: 100%;
 }
 
-.event-list > li .event-object{
+.event-list li .event-object{
 	float: left;
 	margin-right: 5px;
 }
 
-.event-list > li > p{
+.event-list li p{
 	color: #FFFFFF;
 	font-weight: bold;
+}
+
+.event-list li p:hover{
+	color: gray;
 }
 
 .footer-separator{

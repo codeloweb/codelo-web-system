@@ -32,6 +32,8 @@ class SiteController extends Controller
 
 		$articlesCriteria=new CDbCriteria;
 		$articlesCriteria->order='created_date desc';
+		$articlesCriteria->compare('verified',1);
+		$articlesCriteria->compare('show_in_news',1);
 		$articlesCriteria->limit='5';
 		$articles=article::model()->findAll($articlesCriteria);
 
@@ -97,8 +99,15 @@ class SiteController extends Controller
 					"MIME-Version: 1.0\r\n".
 					"Content-Type: text/plain; charset=UTF-8";
 
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				$msg = wordwrap($model->body, 70, "\r\n");
+
+				$mail=mail(Yii::app()->params['adminEmail'],$subject,$msg);
+				if($mail){
+					Yii::app()->user->setFlash('contact','<h3>Gracias por contactarse con nosotros. Estaremos atendiendo su consulta a la brevedad.</h3>');
+				}else{
+					Yii::app()->user->setFlash('contact','<h3>Ocurrio un error al enviar el mensaje.</h3>');
+				}
+				
 				$this->refresh();
 			}
 		}

@@ -32,7 +32,7 @@
 				<div class="col-lg-6">
 			<?php } ?>
 				<div class="article">
-					<div class="cogo-header">SECCION</div>
+					<div class="cogo-header"><?php echo $articles[$i]->section->name ?></div>
 					<div class="article-container ellipsis">
 						<div class="article-header">
 							<h3><?php echo CHtml::link($articles[$i]->title,array('/article/view', 'id'=>$articles[$i]->id)); ?></h3>
@@ -83,12 +83,14 @@
 		<h3>Próximos eventos:</h3>
 		<ul class="event-list">
 			<?php foreach ($eventsData as $event) { ?>
+				<a href="<?php echo $this->createAbsoluteUrl('/article/view&id='.$event->article->id)?>">
 				<li>
 					<div class="event-object">
 						<span class="event-title-object"><?php echo $event->id ?></span>
 					</div>
 					<p><?php echo $event->event_date.' - '.$event->name?><p>
 				</li>
+				</a>
 			<?php } ?>
 		</ul>
 	</div>

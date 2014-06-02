@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-lg-9">
 			<div class="article main">
-				<div class="cogo-header">CULTIVO</div>
+				<div class="cogo-header"><?php echo $model->section->name ?></div>
 
 				<div class="article-main-container ellipsis">
 					<div class="article-header">
@@ -19,7 +19,7 @@
 							</div>
 							<p>por <a href="#"><?php echo $model->author->username ?></a> | Publicación: <?php echo $model->created_date ?></p>
 						</div>
-						<p class="subtitle">&iquest;<?php echo $model->subtitle ?></p>
+						<p class="subtitle"><?php echo $model->subtitle ?></p>
 					</div>
 					<div class="article-content">
 						<p class="article-text">

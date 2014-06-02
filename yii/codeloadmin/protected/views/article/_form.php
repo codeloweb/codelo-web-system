@@ -25,18 +25,17 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'section'); ?>
+		<?php echo $form->dropDownList($model, 'id_section', CHtml::listData(
+			section::model()->findAll(), 'id', 'name'),
+			array('prompt' => 'Selecciona una seccion')
+		); ?>
+		<?php echo $form->error($model,'section'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
-		<?php
-		/*this->widget('application.extensions.editor.CKkceditor',array(
-			"model"=>$model,                # Data-Model
-			"attribute"=>'content',         # Attribute in the Data-Model
-			"height"=>'400px',
-			"width"=>'100%',
-			"filespath"=>(!$model->isNewRecord)?Yii::app()->basePath."/../media/paquetes/".$model->id."/":"",
-			"filesurl"=>(!$model->isNewRecord)?Yii::app()->baseUrl."/media/paquetes/".$model->id."/":"",
-		    ) 
-		);*/
-		$extEditMeOpt = array(
+		<?php $extEditMeOpt = array(
 			'model'=>$model,
 			'attribute'=>'content',
 			'toolbar'=>array(

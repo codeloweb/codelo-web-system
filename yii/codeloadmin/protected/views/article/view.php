@@ -22,6 +22,7 @@ $this->menu=array(
 		'title',
 		'subtitle',
 		'id_user_author',
+		'id_section',
 		'created_date',
 		'sources',
 		'thumbnail_img_path',
@@ -36,7 +37,7 @@ $this->menu=array(
 <p><b>Preview:</b></p>
 <div class="col-lg-12">
 	<div class="article main">
-		<div class="cogo-header">CULTIVO</div>
+		<div class="cogo-header"><?php echo $model->section->name ?></div>
 
 		<div class="article-main-container ellipsis">
 			<div class="article-header">

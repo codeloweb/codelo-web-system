@@ -33,13 +33,14 @@ class article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, id_user_author, created_date, verified, show_in_news', 'required'),
-			array('id_user_author, verified, show_in_news', 'numerical', 'integerOnly'=>true),
+			array('title, content, id_user_author, id_section, verified, show_in_news', 'required'),
+			array('id_user_author, id_section, verified, show_in_news', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('subtitle, sources, thumbnail_img_path', 'length', 'max'=>200),
+			array('uploaded_thumbnail_image_file', 'unsafe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, subtitle, content, id_user_author, created_date, sources, thumbnail_img_path, verified, show_in_news', 'safe', 'on'=>'search'),
+			array('id, title, subtitle, content, id_user_author, id_section, created_date, sources, thumbnail_img_path, verified, show_in_news', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,6 +53,7 @@ class article extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'author' => array(self::BELONGS_TO, 'users', 'id_user_author'),
+			'section' => array(self::BELONGS_TO, 'section', 'id_section'),
 			'carrousels' => array(self::HAS_MANY, 'carrousel', 'id_article'),
 			'events' => array(self::HAS_MANY, 'event', 'id_article'),
 		);
