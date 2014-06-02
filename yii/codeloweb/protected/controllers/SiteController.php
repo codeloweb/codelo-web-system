@@ -114,6 +114,16 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
+	public function actionInstitucional()
+	{
+		$this->render('institucional');	
+	}
+
+	public function actionAsociate()
+	{
+		$this->render('asociate');	
+	}
+
 	/**
 	 * Displays the login page
 	 */

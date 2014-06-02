@@ -34,9 +34,9 @@
 		</header>
 		<nav class="navbar navbar-inverse" role="navigation">
 			<ul class="nav navbar-nav" style="width:70%;">
-				<li class="text-center" style="width:5%; margin-left: 10%;"><?php echo CHtml::link('<span class="glyphicon glyphicon-home"></span>',array('site/index')); ?></li>
-				<li class="text-center" style="width:15%;"><a href="#" >INSTITUCIONAL</a></li>
-				<li class="text-center" style="width:15%;" class="dropdown">
+				<li class="text-center" style="width:20%;"><?php echo CHtml::link('<span class="glyphicon glyphicon-home"></span> HOME',array('site/index')); ?></li>
+				<li class="text-center" style="width:20%;"><?php echo CHtml::link('<span class="glyphicon glyphicon-book"></span> INSTITUCIONAL',array('site/institucional')); ?></li>
+				<!--<li class="text-center" style="width:15%;" class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">SECCIONES</a>
 					<ul style="width: 15em;" class="dropdown-menu">
 						<li><a href="#">CAÑAMO INDUSTRIAL</a></li>
@@ -44,10 +44,10 @@
 						<li><a href="#">MEDICINAL</a></li>
 						<li><a href="#">LEGALES</a></li>
 					</ul>
-				</li>
-				<li class="text-center" style="width:15%;"><a href="#">EVENTOS</a></li>
-				<li class="text-center" style="width:15%;"><a href="asociate.html">ASOCIATE</a></li>
-				<li class="text-center" style="width:15%;"><a href="?r=site/contact">CONTACTO</a></li>
+				</li>!-->
+				<li class="text-center" style="width:20%;"><a href="a.html"><span class="glyphicon glyphicon-calendar"></span> EVENTOS</a></li>
+				<li class="text-center" style="width:20%;"><?php echo CHtml::link('<span class="glyphicon glyphicon-credit-card"></span> ASOCIATE',array('site/asociate')); ?></li>
+				<li class="text-center" style="width:20%;"><?php echo CHtml::link('<span class="glyphicon glyphicon-envelope"></span> CONTACTO',array('site/contact')); ?></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search" style="width:30%;">
 				<div class="input-group" style="height: 10px;">
