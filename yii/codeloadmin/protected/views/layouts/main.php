@@ -30,6 +30,7 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Articulos', 'url'=>array('/article'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Autorizaciones', 'url'=>array('/authorization'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Carrousel', 'url'=>array('/carrousel'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Usuarios', 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Eventos', 'url'=>array('/event'), 'visible'=>!Yii::app()->user->isGuest),
