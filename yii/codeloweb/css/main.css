@@ -382,3 +382,151 @@ hr.footer-separator{
 	font-size: 0.8em;
 	margin-left: 2em;
 }
+
+.modal-content {
+  background-image: linear-gradient(to bottom, #3C3C3C 0px, #222 100%);
+}
+.modal-dialog {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%)!important;
+	-ms-transform:translate(-50%,-50%)!important;
+	-webkit-transform:translate(-50%,-50%)!important;
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+.modal-footer {
+    margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .modal-dialog {
+    width: 100%;
+  }
+}
+
+.article-content.asociate .thumbnail{
+	float: right;
+	background: transparent;
+	border: none;
+	margin-left: 1em;
+}
+
+.article-content.asociate .article-text{
+	margin-top: 1.5em;
+	line-height: 2em;
+	font-weight: bold;
+}
+
+.article-content.asociate ul li{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.article-content.asociate ul {
+	margin-top: 3em;
+}
+
+.article-content.institucional ol li{
+	margin-bottom: 1.5em;
+	font-size: 1.2em;
+}
+
+.article-content.institucional ol {
+	margin-top: 3em;
+}
+
+.article-content.institucional{
+	padding-right: 3em!important;
+}
+
+/*Fix glyphicon escape problem*/
+.glyphicon-bell:before {
+  content: "\d83d\dd14";
+}
+.glyphicon-bookmark:before {
+  content: "\d83d\dd16";
+}
+.glyphicon-briefcase:before {
+  content: "\d83d\dcbc";
+}
+.glyphicon-calendar:before {
+  content: "\d83d\dcc5";
+}
+.glyphicon-camera:before {
+  content: "\d83d\dcf7";
+}
+.glyphicon-fire:before {
+  content: "\d83d\dd25";
+}
+.glyphicon-lock:before {
+  content: "\d83d\dd12";
+}
+.glyphicon-paperclip:before {
+  content: "\d83d\dcce";
+}
+.glyphicon-pushpin:before {
+  content: "\d83d\dccc";
+}
+.glyphicon-wrench:before {
+  content: "\d83d\dd27";
+}
+
+.related-post{
+	color: #FFFFFF;
+	position: relative;
+	border: none;
+	margin:0 auto 0 auto;
+	background: rgba(0, 0, 0, 0.6);
+	padding: 1.5em 1.5em 1.5em 1.5em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.related-post p.related-post-title{
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #df4e17;
+}
+
+.related-post .section{
+	font-style: italic;
+	font-weight: bold;
+	margin-bottom: 0!important;
+}
+
+.related-post .side-article{
+
+}
+
+.related-post .side-article .title{
+	font-weight: bold;
+}
+
+.related-post .side-article hr{
+	margin-top: 0px;
+	margin-bottom: 10px;
+	border: 0;
+    height: 1px;
+    margin-left: 0;
+	margin-right: 5px;
+    background-image: -webkit-linear-gradient(left, rgba(255,255,255,0.75), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+    background-image: -moz-linear-gradient(left, rgba(255,255,255,0.75), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+    background-image: -ms-linear-gradient(left, rgba(255,255,255,0.75), rgba(255,255,255,0.75), rgba(255,255,255,0)); 
+}
+
+.related-post .side-article .thumbnail{
+	margin-bottom: 10px;
+}
+
+hr.separator {
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px white;
+}
+hr.separator:after {  /* Not really supposed to work, but does */
+    content: "\00a0";  /* Prevent margin collapse */
+}

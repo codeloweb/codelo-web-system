@@ -105,7 +105,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'chori.linux4ever@gmail.com',
 		// this is used in contact page
 		'fbAppId' => '465653656868539',
 	),

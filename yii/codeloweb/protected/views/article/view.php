@@ -55,6 +55,39 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-lg-3" style="padding-left: 0;">
+			<div class="glass-container related-post" >
+				<p class="related-post-title">Articulos relacionados</p>
+				<div class="side-article">
+					<p class="section">Legales</p>
+					<hr/>
+					<img src="images/article/1/Marihuana.jpg" alt="frasco_marihuana" class="thumbnail col-lg-12" />
+					<div class="title">Santa Fé consideraría regular la marihuana si a Uruguay le va bien</div>
+				</div>
+				<hr class="separator"/>
+				<div class="side-article">
+					<p class="section">Legales</p>
+					<hr/>
+					<img src="images/article/4/onu.jpg" alt="frasco_marihuana" class="thumbnail col-lg-12" />
+					<div class="title">ONU habló por primera vez de despenalizar el consumo de drogas</div>
+				</div>
+				<hr class="separator"/>
+				<div class="side-article">
+					<p class="section">Insdustrial</p>
+					<hr/>
+					<img src="images/article/5/biodiesel.jpg" alt="biodiesel" class="thumbnail col-lg-12" />
+					<div class="title">El cáñamo para crear el biodiesel, por un mundo más verde</div>
+				</div>
+				<hr class="separator"/>
+				<div class="side-article">
+					<p class="section">Industrial</p>
+					<hr/>
+					<img src="images/article/2/caniamo_japon.jpg" alt="caniamo japon" class="thumbnail col-lg-12" />
+					<div class="title">El cannabis: la fibra de Japón</div>
+				</div>
+				<hr class="separator"/>
+			</div>
+		</div>
 	</div>
 </div>
 
