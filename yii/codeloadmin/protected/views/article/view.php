@@ -4,18 +4,18 @@ $this->breadcrumbs=array(
 	$model->title,
 );
 
-$this->menu=array(
+/*$this->menu=array(
 	array('label'=>'List article', 'url'=>array('index')),
 	array('label'=>'Create article', 'url'=>array('create')),
 	array('label'=>'Update article', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete article', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage article', 'url'=>array('admin')),
-);
+);*/
 ?>
 
-<h1>View article #<?php echo $model->id; ?></h1>
+<!--<h1>View article #<?php echo $model->id; ?></h1>-->
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php /*$this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -27,13 +27,33 @@ $this->menu=array(
 		'sources',
 		'thumbnail_img_path',
 	),
-)); ?>
+));*/ ?>
 <?php  
   $baseUrl = Yii::app()->baseUrl; 
   Yii::app()->getClientScript()->registerCssFile($baseUrl.'/css/bootstrap.css');
   Yii::app()->getClientScript()->registerCssFile($baseUrl.'/css/article-view.css');
 ?>
-<br/>
+<?php if(Yii::app()->user->getIsSuperuser()){
+	if(!$model->verified){ ?>
+		<div class="msg-box-red">
+			Este artículo no está autorizado.
+		</div>
+		<?php echo CHtml::button('Desautorizar', array(
+		'submit' => $this->createUrl('Authorize',
+			array('command'=>'authorize','key'=>$model->id)),
+			'confirm'=>"Are you sure want to delete this data ?",
+			'class' => 'btn btn-success')); ?>
+	<?php }else{ ?>
+	<div class="msg-box-green">
+		Este artículo está autorizado.
+	</div>
+	<?php echo CHtml::button('Desautorizar', array(
+		'submit' => $this->createUrl('Disavow',
+			array('command'=>'disavow','key'=>$model->id)),
+			'confirm'=>"Are you sure want to delete this data ?",
+			'class' => 'btn btn-danger')); ?>
+	<?php }
+} ?>
 <p><b>Preview:</b></p>
 <div class="col-lg-12">
 	<div class="article main">

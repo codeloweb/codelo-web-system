@@ -77,7 +77,7 @@
 			'options' => array(
 				'minLength' => '0',
 				'select'=>"js:function(event, ui) { 
-					 var terms = this.value.split( /,\s*/ );
+					var terms = this.value.split( /,\s*/ );
 					// remove the current input
 					terms.pop();
 					// add the selected item
@@ -86,6 +86,9 @@
 					terms.push( '' );
 					this.value = terms.join( ', ' );
 					return false;
+				}",
+				'click'=>"js:function(event, ui) { 
+					alert('a');
 				}",
 			),
 			'source'=>$this->createUrl('autocomplete/tags'),

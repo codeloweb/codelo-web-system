@@ -71,6 +71,7 @@ class article extends CActiveRecord
 			'subtitle' => 'Subtitulo',
 			'content' => 'Contenido',
 			'id_user_author' => 'Id Autor',
+			'author' => 'Autor',
 			'created_date' => 'Fecha de creacion',
 			'sources' => 'Fuentes',
 			'id_section' => 'Id Section',

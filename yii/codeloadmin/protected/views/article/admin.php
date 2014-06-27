@@ -46,8 +46,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'title',
 		'subtitle',
 		/*'content',*/
-		'id_user_author',
-		'created_date',
+		array(            // display 'create_time' using an expression
+            'name'=>'id_user_author',
+            'value'=>'$data->author->username',
+		),
+ 		'created_date',
+		array(            // display 'create_time' using an expression
+            'name'=>'verified',
+            'value'=>'$data->verified ? "<div class=label-success>Autorizado</div>" : "<div class=label-important>No Autorizado</div>"',
+            'type'=>'html'
+        ),
 		/*
 		'sources',
 		'thumbnail_img_path',

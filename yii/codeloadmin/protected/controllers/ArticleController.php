@@ -32,15 +32,15 @@ class ArticleController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array(),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('index','view','create','update','admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array(),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -75,20 +75,19 @@ class ArticleController extends Controller
 			$model->attributes=$_POST['article'];
 			$model->setTags($_POST['tags']);
 			$model->id_user_author=Yii::app()->user->id;
-			//Upload image to server
-			$uploadFile = CUploadedFile::getInstance($model, 'uploaded_thumbnail_image_file');
-			$fileName = "{$uploadFile}";
-
-			if (!file_exists(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id)) {
-				mkdir(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id, 0777, true);
-			}
-			
-			if(isset($uploadFile))
-			{
-				$model->thumbnail_img_path = $fileName;
-				$uploadFile->saveAs(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id.'/'.$fileName);
-			}
 			if($model->save())
+				if (!file_exists(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id)) {
+					mkdir(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id, 0777, true);
+				}
+				//Upload image to server
+				$uploadFile = CUploadedFile::getInstance($model, 'uploaded_thumbnail_image_file');
+				$fileName = "{$uploadFile}";
+				if(isset($uploadFile))
+				{
+					$model->thumbnail_img_path = $fileName;
+					$uploadFile->saveAs(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id.'/'.$fileName);
+				}
+
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -175,6 +174,33 @@ class ArticleController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+
+	public function actionAuthorize()
+	{
+		if(isset($_GET['key'])){
+			$model=article::model()->findbyPk($_GET['key']);
+			if($model===null)
+				throw new CHttpException(404,'The requested page does not exist.');
+			$model->verified=1;
+			$model->save();
+			$this->render('view',array(
+				'model'=>$model,
+			));
+		}
+	}
+
+	public function actionDisavow(){
+		if(isset($_GET['key'])){
+			$model=article::model()->findbyPk($_GET['key']);
+			if($model===null)
+				throw new CHttpException(404,'The requested page does not exist.');
+			$model->verified=0;
+			$model->save();
+			$this->render('view',array(
+				'model'=>$model,
+			));
+		}
 	}
 
 	/**
