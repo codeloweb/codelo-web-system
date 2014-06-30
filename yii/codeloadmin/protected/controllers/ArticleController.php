@@ -85,6 +85,7 @@ class ArticleController extends Controller
 				if(isset($uploadFile))
 				{
 					$model->thumbnail_img_path = $fileName;
+					$model->save();
 					$uploadFile->saveAs(Yii::getFrameworkPath().'/../codeloweb/images/article/'.$model->id.'/'.$fileName);
 				}
 

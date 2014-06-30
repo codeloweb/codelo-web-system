@@ -56,7 +56,30 @@ class ArticleController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel(),
+			'relatedAticles'=>$this->loadRelatedArticles(),
 		));
+	}
+
+	/**
+	 * Returns the related articles for current article
+	 */
+	public function loadRelatedArticles()
+	{
+		$sql="SELECT DISTINCT t.* FROM `article` `t`
+		JOIN article_tag bt0 ON t.id = bt0.article_id
+		JOIN tag tag0 ON tag0.id = bt0.tag_id AND tag0.`name` in ('regulacion', 'legalizacion', 'onu', 'despenalizacion')";
+
+		
+
+		$command = Yii::app()->db->createCommand($sql);
+		$taggeds = $command->queryAll();
+		foreach ($taggeds as &$tagged) {
+			echo $tagged['title'];
+		}
+
+		$citeriaTest = article::model();
+		$citeriaTest = $citeriaTest->withTags($this->_model->getTags());
+		return $taggeds;
 	}
 	
 	/**
