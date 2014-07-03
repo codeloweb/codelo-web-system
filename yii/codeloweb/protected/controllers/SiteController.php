@@ -92,20 +92,19 @@ class SiteController extends Controller
 			$model->attributes=$_POST['ContactForm'];
 			if($model->validate())
 			{
-				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+				/*$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
 				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
 				$headers="From: $name <{$model->email}>\r\n".
 					"Reply-To: {$model->email}\r\n".
 					"MIME-Version: 1.0\r\n".
-					"Content-Type: text/plain; charset=UTF-8";
-
+					"Content-Type: text/plain; charset=UTF-8";*/
 				$msg = wordwrap($model->body, 70, "\r\n");
-
-				$mail=mail(Yii::app()->params['adminEmail'],$subject,$msg);
-				if($mail){
+				//$mail=mail(Yii::app()->params['adminEmail'],$subject,$msg);
+				$mailMsg = $this->mailsend($model->email,Yii::app()->params['adminEmail'],$model->name,$model->subject,$msg);
+				if($mailMsg===""){
 					Yii::app()->user->setFlash('contact','<h3>Gracias por contactarse con nosotros. Estaremos atendiendo su consulta a la brevedad.</h3>');
 				}else{
-					Yii::app()->user->setFlash('contact','<h3>Ocurrio un error al enviar el mensaje.</h3>');
+					Yii::app()->user->setFlash('contact','<h3>Ocurrio un error al enviar el mensaje.<br/>'.$mailMsg.'</h3>');
 				}
 				
 				$this->refresh();
@@ -113,6 +112,20 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
+
+	public function mailsend($to,$from,$fromName,$subject,$message){
+        $mail=Yii::app()->Smtpmail;
+        $mail->SMTPDebug = 1;
+        $mail->SetFrom($from, $fromName);
+        $mail->Subject = $subject;
+        $mail->MsgHTML($message);
+        $mail->AddAddress($to, "");
+        if(!$mail->Send()) {
+            return "Mailer Error: " . $mail->ErrorInfo;
+        }else {
+            return "";
+        }
+    }
 
 	public function actionInstitucional()
 	{

@@ -68,7 +68,7 @@ class ArticleController extends Controller
 		$model=new article;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		echo $this->performAjaxValidation($model);
 
 		if(isset($_POST['article']))
 		{

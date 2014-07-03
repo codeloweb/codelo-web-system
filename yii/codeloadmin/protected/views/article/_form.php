@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'section'); ?>
+		<?php echo $form->labelEx($model,'id_section'); ?>
 		<?php echo $form->dropDownList($model, 'id_section', CHtml::listData(
 			section::model()->findAll(), 'id', 'name'),
 			array('prompt' => 'Selecciona una seccion')
@@ -107,12 +107,6 @@
 		<?php echo CHtml::encode($model->thumbnail_img_path); ?><br/>
 		<?php echo $form->fileField($model,'uploaded_thumbnail_image_file'); ?>
 		<?php echo $form->error($model,'thumbnail_img_path'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'verified'); ?>
-		<?php echo $form->checkBox($model,'verified',array('value'=>1, 'uncheckValue'=>0, 'checked'=>($model->verified==1))); ?>
-		<?php echo $form->error($model,'verified'); ?>
 	</div>
 
 	<div class="row">

@@ -38,10 +38,10 @@ $this->breadcrumbs=array(
 		<div class="msg-box-red">
 			Este artículo no está autorizado.
 		</div>
-		<?php echo CHtml::button('Desautorizar', array(
+		<?php echo CHtml::button('Autorizar', array(
 		'submit' => $this->createUrl('Authorize',
 			array('command'=>'authorize','key'=>$model->id)),
-			'confirm'=>"Are you sure want to delete this data ?",
+			'confirm'=>"Está seguro que desea autorizar este artículo ?",
 			'class' => 'btn btn-success')); ?>
 	<?php }else{ ?>
 	<div class="msg-box-green">
@@ -50,7 +50,7 @@ $this->breadcrumbs=array(
 	<?php echo CHtml::button('Desautorizar', array(
 		'submit' => $this->createUrl('Disavow',
 			array('command'=>'disavow','key'=>$model->id)),
-			'confirm'=>"Are you sure want to delete this data ?",
+			'confirm'=>"Está seguro que desea desautorizar este artículo ? ?",
 			'class' => 'btn btn-danger')); ?>
 	<?php }
 } ?>

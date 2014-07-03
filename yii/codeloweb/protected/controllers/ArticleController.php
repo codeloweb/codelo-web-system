@@ -65,20 +65,15 @@ class ArticleController extends Controller
 	 */
 	public function loadRelatedArticles()
 	{
-		$sql="SELECT DISTINCT t.* FROM `article` `t`
+		$sql="SELECT DISTINCT t.*, section0.name section_name FROM `article` `t`
 		JOIN article_tag bt0 ON t.id = bt0.article_id
-		JOIN tag tag0 ON tag0.id = bt0.tag_id AND tag0.`name` in ('regulacion', 'legalizacion', 'onu', 'despenalizacion')";
-
-		
+		JOIN tag tag0 ON tag0.id = bt0.tag_id AND tag0.`name` in ("."'".implode("','",$this->_model->getTags())."'".")
+		JOIN section section0 ON section0.id = t.id_section
+		WHERE t.id != ".$this->_model->id;
 
 		$command = Yii::app()->db->createCommand($sql);
 		$taggeds = $command->queryAll();
-		foreach ($taggeds as &$tagged) {
-			echo $tagged['title'];
-		}
 
-		$citeriaTest = article::model();
-		$citeriaTest = $citeriaTest->withTags($this->_model->getTags());
 		return $taggeds;
 	}
 	

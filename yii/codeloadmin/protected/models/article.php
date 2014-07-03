@@ -34,7 +34,7 @@ class article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, id_user_author, id_section, verified, show_in_news', 'required'),
+			array('title, content, id_user_author, id_section, show_in_news, thumbnail_img_path', 'required'),
 			array('id_user_author, id_section, verified, show_in_news', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('subtitle, sources, thumbnail_img_path', 'length', 'max'=>200),
@@ -74,7 +74,7 @@ class article extends CActiveRecord
 			'author' => 'Autor',
 			'created_date' => 'Fecha de creacion',
 			'sources' => 'Fuentes',
-			'id_section' => 'Id Section',
+			'id_section' => 'Seccion',
 			'section' => 'Seccion',
 			'thumbnail_img_path' => 'Imagen de presentacion',
 			'verified' => 'Verificado',

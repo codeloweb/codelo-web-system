@@ -62,10 +62,10 @@
 				<?php foreach ($relatedAticles as $relatedArt) { ?>
 					
 					<div class="side-article">
-						<p class="section"></p>
+						<p class="section"><?php echo $relatedArt['section_name'] ?></p>
 						<hr/>
 						<img src="images/article/<?php echo $relatedArt['id'] ?>/<?php echo $relatedArt['thumbnail_img_path'] ?>" alt="<?php echo $relatedArt['thumbnail_img_path'] ?>" class="thumbnail col-lg-12" />
-						<div class="title"><?php echo $relatedArt['title'] ?></div>
+						<div class="title"><?php echo CHtml::link($relatedArt['title'],array('/article/view', 'id'=>$relatedArt['id'])); ?></div>
 					</div>
 					<hr class="separator"/>
 				<?php } ?>
